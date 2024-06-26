@@ -8,3 +8,4 @@ vless://b7b9fcd5-b809-4de4-8297-8837bac4bdc9@151.101.193.74:443?encryption=none&
 vless://b7b9fcd5-b809-4de4-8297-8837bac4bdc9@151.101.129.227:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#7
 vless://b7b9fcd5-b809-4de4-8297-8837bac4bdc9@151.101.130.83:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#8
 vless://b7b9fcd5-b809-4de4-8297-8837bac4bdc9@151.101.46.99:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#9
+vless://05e3234f-6b4a-4d68-8a6f-16c7e9353b74@209.94.90.181:443?security=tls&encryption=none&type=ws&host=less.jum60.ru&sni=less.jum60.ru#CF
