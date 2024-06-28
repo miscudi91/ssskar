@@ -1,0 +1,495 @@
+jsjsjs
+{
+  "experimental": {
+    "clash_api": {
+      "external_controller": "",
+      "secret": ""
+    },
+    "debug": {
+      "max_threads": null,
+      "panic_on_fault": false
+    },
+    "cache_file": {
+      "enabled": false,
+      "path": "",
+      "store_fakeip": true
+    }
+  },
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "output": "",
+    "timestamp": true
+  },
+  "ntp": {
+    "enabled": false,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "12h",
+    "detour": "direct_out"
+  },
+  "dns": {
+    "final": "dns_final_out",
+    "strategy": "ipv4_only",
+    "independent_cache": true,
+    "rules": [
+      {
+        "domain_suffix": [
+          "ingest.sentry.io",
+          "karing.app",
+          "yacd.metacubex.one"
+        ],
+        "server": "dns_direct_out",
+        "name": "direct[karing][dns]"
+      },
+      {
+        "domain_suffix": [
+          "speedtest.net"
+        ],
+        "server": "dns_proxy_out",
+        "name": "proxy[karing][dns]"
+      }
+    ],
+    "servers": [
+      {
+        "tag": "dns_outbound_out",
+        "address": "local"
+      },
+      {
+        "tag": "dns_direct_out",
+        "address": "local"
+      },
+      {
+        "tag": "dns_proxy_out",
+        "address": "https://1.1.1.1/dns-query",
+        "address_resolver": "dns_resolver_out",
+        "detour": "selector_out"
+      },
+      {
+        "tag": "dns_final_out",
+        "address": "udp://1.0.0.1",
+        "address_resolver": "dns_resolver_out",
+        "detour": "selector_out"
+      },
+      {
+        "tag": "dns_resolver_out",
+        "address": "local"
+      },
+      {
+        "tag": "dns_local_out",
+        "address": "local",
+        "detour": "direct_out"
+      },
+      {
+        "tag": "dns_block_out",
+        "address": "rcode://success"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed_in_direct",
+      "set_system_proxy": false,
+      "listen": "127.0.0.1",
+      "listen_port": 3065,
+      "sniff": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed_in_forword",
+      "set_system_proxy": false,
+      "listen": "127.0.0.1",
+      "listen_port": 3066,
+      "sniff": true
+    },
+    {
+      "type": "tun",
+      "tag": "tun_in",
+      "interface_name": "Karing TUN Network Adapter",
+      "inet4_address": [
+        "172.19.0.1/30"
+      ],
+      "inet6_address": null,
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": false,
+      "stack": "mixed",
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 3067
+        }
+      },
+      "include_package": [],
+      "exclude_package": [],
+      "sniff": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed_in",
+      "set_system_proxy": false,
+      "listen": "127.0.0.1",
+      "listen_port": 3067,
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "selector_out",
+      "default": "urltest_out",
+      "interrupt_exist_connections": false,
+      "outbounds": [
+        "urltest_out"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "urltest_out",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "8h",
+      "interrupt_exist_connections": false,
+      "idle_timeout": "8h",
+      "outbounds": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "CF"
+      ]
+    },
+    {
+      "server": "151.101.193.190",
+      "server_port": 443,
+      "tag": "1",
+      "type": "vless",
+      "uuid": "b7b9fcd5-b809-4de4-8297-8837bac4bdc9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mail.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": [
+            "Main.aero55mail.online"
+          ]
+        }
+      }
+    },
+    {
+      "server": "151.101.240.195",
+      "server_port": 443,
+      "tag": "2",
+      "type": "vless",
+      "uuid": "b7b9fcd5-b809-4de4-8297-8837bac4bdc9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mail.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": [
+            "Main.aero55mail.online"
+          ]
+        }
+      }
+    },
+    {
+      "server": "151.101.241.137",
+      "server_port": 443,
+      "tag": "3",
+      "type": "vless",
+      "uuid": "b7b9fcd5-b809-4de4-8297-8837bac4bdc9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mail.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": [
+            "Main.aero55mail.online"
+          ]
+        }
+      }
+    },
+    {
+      "server": "151.101.187.18",
+      "server_port": 443,
+      "tag": "4",
+      "type": "vless",
+      "uuid": "b7b9fcd5-b809-4de4-8297-8837bac4bdc9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mail.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": [
+            "Main.aero55mail.online"
+          ]
+        }
+      }
+    },
+    {
+      "server": "151.101.194.27",
+      "server_port": 443,
+      "tag": "5",
+      "type": "vless",
+      "uuid": "b7b9fcd5-b809-4de4-8297-8837bac4bdc9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mail.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": [
+            "Main.aero55mail.online"
+          ]
+        }
+      }
+    },
+    {
+      "server": "151.101.193.74",
+      "server_port": 443,
+      "tag": "6",
+      "type": "vless",
+      "uuid": "b7b9fcd5-b809-4de4-8297-8837bac4bdc9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mail.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": [
+            "Main.aero55mail.online"
+          ]
+        }
+      }
+    },
+    {
+      "server": "151.101.129.227",
+      "server_port": 443,
+      "tag": "7",
+      "type": "vless",
+      "uuid": "b7b9fcd5-b809-4de4-8297-8837bac4bdc9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mail.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": [
+            "Main.aero55mail.online"
+          ]
+        }
+      }
+    },
+    {
+      "server": "151.101.130.83",
+      "server_port": 443,
+      "tag": "8",
+      "type": "vless",
+      "uuid": "b7b9fcd5-b809-4de4-8297-8837bac4bdc9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mail.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": [
+            "Main.aero55mail.online"
+          ]
+        }
+      }
+    },
+    {
+      "server": "151.101.46.99",
+      "server_port": 443,
+      "tag": "9",
+      "type": "vless",
+      "uuid": "b7b9fcd5-b809-4de4-8297-8837bac4bdc9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mail.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": [
+            "Main.aero55mail.online"
+          ]
+        }
+      }
+    },
+    {
+      "server": "209.94.90.181",
+      "server_port": 443,
+      "tag": "CF",
+      "type": "vless",
+      "uuid": "05e3234f-6b4a-4d68-8a6f-16c7e9353b74",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "less.jum60.ru",
+        "insecure": true,
+        "utls": {
+          "enabled": true
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": [
+            "less.jum60.ru"
+          ]
+        }
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct_out"
+    },
+    {
+      "type": "block",
+      "tag": "block_out"
+    },
+    {
+      "type": "dns",
+      "tag": "dns_out"
+    }
+  ],
+  "route": {
+    "final": "selector_out",
+    "find_process": true,
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "inbound": [
+          "mixed_in_direct"
+        ],
+        "outbound": "direct_out"
+      },
+      {
+        "inbound": [
+          "mixed_in_forword"
+        ],
+        "outbound": "selector_out"
+      },
+      {
+        "protocol": "dns",
+        "outbound": "dns_out"
+      },
+      {
+        "domain_suffix": [
+          "ingest.sentry.io",
+          "karing.app",
+          "yacd.metacubex.one"
+        ],
+        "outbound": "direct_out"
+      },
+      {
+        "domain_suffix": [
+          "speedtest.net"
+        ],
+        "outbound": "selector_out"
+      },
+      {
+        "rule_set": [
+          "geoip:tm"
+        ],
+        "outbound": "direct_out"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct_out"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geoip:tm",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/KaringX/karing-ruleset/raw/sing/geo/geoip/tm.srs",
+        "download_detour": "selector_out"
+      }
+    ]
+  }
+}
