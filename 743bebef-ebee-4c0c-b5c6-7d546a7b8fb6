@@ -1,13 +1,13 @@
 743bebef-ebee-4c0c-b5c6-7d546a7b8fb6
-vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.130.219:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#1
-vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.240.208:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#2
-vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.137:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#3
-vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.240.195:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#4
-vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.194.27:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#5
-vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.125.57:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#6
-vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.240.138:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#7
-vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.192.81:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#8
-vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none&security=tls&sni=mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#9
+vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.130.219:443?encryption=none&security=tls&sni=https://mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#1
+vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.240.208:443?encryption=none&security=tls&sni=https://mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#2
+vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.137:443?encryption=none&security=tls&sni=https://mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#3
+vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.240.195:443?encryption=none&security=tls&sni=https://mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#4
+vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.194.27:443?encryption=none&security=tls&sni=https://mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#5
+vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.125.57:443?encryption=none&security=tls&sni=https://mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#6
+vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.240.138:443?encryption=none&security=tls&sni=https://mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#7
+vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.192.81:443?encryption=none&security=tls&sni=https://mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#8
+vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none&security=tls&sni=https://mail.ru&fp=chrome&type=ws&host=Main.aero55mail.online&path=%2F#9
 
 
 
@@ -147,7 +147,7 @@ vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "mail.ru",
+        "server_name": "https://mail.ru",
         "insecure": true,
         "utls": {
           "enabled": true,
@@ -173,7 +173,7 @@ vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "mail.ru",
+        "server_name": "https://mail.ru",
         "insecure": true,
         "utls": {
           "enabled": true,
@@ -199,7 +199,7 @@ vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "mail.ru",
+        "server_name": "https://mail.ru",
         "insecure": true,
         "utls": {
           "enabled": true,
@@ -225,7 +225,7 @@ vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "mail.ru",
+        "server_name": "https://mail.ru",
         "insecure": true,
         "utls": {
           "enabled": true,
@@ -251,7 +251,7 @@ vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "mail.ru",
+        "server_name": "https://mail.ru",
         "insecure": true,
         "utls": {
           "enabled": true,
@@ -277,7 +277,7 @@ vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "mail.ru",
+        "server_name": "https://mail.ru",
         "insecure": true,
         "utls": {
           "enabled": true,
@@ -303,7 +303,7 @@ vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "mail.ru",
+        "server_name": "https://mail.ru",
         "insecure": true,
         "utls": {
           "enabled": true,
@@ -329,7 +329,7 @@ vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "mail.ru",
+        "server_name": "https://mail.ru",
         "insecure": true,
         "utls": {
           "enabled": true,
@@ -355,7 +355,7 @@ vless://743bebef-ebee-4c0c-b5c6-7d546a7b8fb6@151.101.241.136:443?encryption=none
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "mail.ru",
+        "server_name": "https://mail.ru",
         "insecure": true,
         "utls": {
           "enabled": true,
