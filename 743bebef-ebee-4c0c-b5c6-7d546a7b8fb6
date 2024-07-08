@@ -1,26 +1,164 @@
 {
-  "server": "151.101.130.219",
-  "server_port": 443,
-  "tag": "1",
-  "type": "vless",
-  "uuid": "743bebef-ebee-4c0c-b5c6-7d546a7b8fb6",
-  "packet_encoding": "xudp",
-  "tls": {
-    "enabled": true,
-    "server_name": "mail.ru",
-    "insecure": true,
-    "utls": {
-      "enabled": true,
-      "fingerprint": "chrome"
+  "log": {
+    "dnsLog": false,
+    "access": "/Users/kurban/Library/Group Containers/group.hossin.asaadi.V2Box/access.log",
+    "loglevel": "warning",
+    "error": "/Users/kurban/Library/Group Containers/group.hossin.asaadi.V2Box/error.log"
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "tag": "socks5",
+      "port": 56807,
+      "protocol": "shadowsocks",
+      "settings": {
+        "password": "123456",
+        "network": "tcp,udp",
+        "level": 8,
+        "udp": false,
+        "ota": true,
+        "method": "chacha20-ietf-poly1305"
+      },
+      "sniffing": {
+        "destOverride": [
+          "tls",
+          "http",
+          "quic"
+        ],
+        "enabled": true
+      }
+    },
+    {
+      "listen": "[::1]",
+      "port": 56808,
+      "settings": {
+        "address": "[::1]"
+      },
+      "protocol": "dokodemo-door",
+      "tag": "api"
+    },
+    {
+      "settings": {
+        "address": "8.8.8.8",
+        "network": "tcp,udp",
+        "port": 53,
+        "timeout": 10,
+        "userLevel": 0
+      },
+      "tag": "inDns",
+      "listen": "127.0.0.1",
+      "protocol": "dokodemo-door",
+      "port": 56809
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "mux": {
+        "concurrency": 50,
+        "enabled": true
+      },
+      "settings": {
+        "vnext": [
+          {
+            "users": [
+              {
+                "email": "",
+                "id": "c5212043-cfd4-43fc-a353-a32bb20504b2",
+                "flow": "",
+                "level": 8,
+                "encryption": "none"
+              }
+            ],
+            "address": "151.101.130.219",
+            "port": 443
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "host": "fff.asb-airline.online"
+          },
+          "path": "/"
+        },
+        "tlsSettings": {
+          "serverName": "mail.ru",
+          "allowInsecure": true,
+          "fingerprint": "chrome",
+          "alpn": []
+        },
+        "security": "tls"
+      },
+      "tag": "proxy"
+    }
+  ],
+  "api": {
+    "tag": "api",
+    "services": [
+      "StatsService"
+    ]
+  },
+  "dns": {
+    "disableFallbackIfMatch": true,
+    "disableCache": true,
+    "tag": "dnsQuery",
+    "queryStrategy": "UseIP",
+    "disableFallback": true,
+    "servers": [
+      {
+        "address": "8.8.8.8",
+        "skipFallback": false
+      }
+    ]
+  },
+  "stats": {},
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "inDns"
+        ],
+        "outboundTag": "outDns"
+      },
+      {
+        "type": "field",
+        "outboundTag": "proxy",
+        "inboundTag": [
+          "dnsQuery"
+        ]
+      }
+    ],
+    "domainStrategy": "AsIs",
+    "balancers": []
+  },
+  "policy": {
+    "levels": {
+      "8": {
+        "connIdle": 30,
+        "statsUserDownlink": false,
+        "bufferSize": 0,
+        "downlinkOnly": 1,
+        "statsUserUplink": false,
+        "handshake": 4,
+        "uplinkOnly": 1
+      }
+    },
+    "system": {
+      "statsInboundUplink": true,
+      "statsOutboundUplink": true,
+      "statsOutboundDownlink": true,
+      "statsInboundDownlink": true
     }
   },
-  "transport": {
-    "type": "ws",
-    "path": "/",
-    "headers": {
-      "Host": [
-        "Main.aero55mail.online"
-      ]
-    }
-  }
+  "transport": {}
 }
