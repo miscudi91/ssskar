@@ -1,10 +1,5 @@
 {
-  "log": {
-    "dnsLog": false,
-    "access": "/Users/kurban/Library/Group Containers/group.hossin.asaadi.V2Box/access.log",
-    "loglevel": "warning",
-    "error": "/Users/kurban/Library/Group Containers/group.hossin.asaadi.V2Box/error.log"
-  },
+  
   "inbounds": [
     {
       "listen": "127.0.0.1",
